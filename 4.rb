@@ -16,4 +16,21 @@
 #
 ## Решение:
 
-
+sum = 0
+matr = []
+File.readlines("data/4.txt").each {|el| matr << el.split("x")}
+for mass in (0..matr.size-1)
+    size = mass.size
+    for el in (0..matr[mass].size-1)
+        matr[mass][el] = matr[mass][el].to_i
+    end
+    sum += 2*matr[mass][0]*matr[mass][1] + 2*matr[mass][1]*matr[mass][2] + 2*matr[mass][0]*matr[mass][2]
+    if matr[mass][0]*matr[mass][1] < matr[mass][1]*matr[mass][2] && matr[mass][0]*matr[mass][1] < matr[mass][0]*matr[mass][2]
+        sum += matr[mass][0]*matr[mass][1]
+    elsif matr[mass][1]*matr[mass][2] < matr[mass][0]*matr[mass][2]
+        sum += matr[mass][1]*matr[mass][2]
+    else
+        sum += matr[mass][0]*matr[mass][2]
+    end
+end
+puts sum
