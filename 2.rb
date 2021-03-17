@@ -15,4 +15,13 @@
 #
 #
 ## Решение:
-
+require 'digest/md5'
+str = gets.chomp
+md5 = Digest::MD5.hexdigest(str)
+num = 0
+while md5.byteslice(0, 5) != "00000"
+    s = str + num.to_s
+    md5 = Digest::MD5.hexdigest(s)
+    num += 1
+end
+puts num-1

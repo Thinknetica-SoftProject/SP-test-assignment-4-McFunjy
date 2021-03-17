@@ -16,6 +16,13 @@
 #
 ## Решение:
 
-
-
-
+str = File.read("data/1.txt")
+floor = 0
+for simbol in (0..str.length-1)
+    if str[simbol] == "("
+        floor += 1
+    else
+        floor -= 1
+    end
+end
+puts floor
