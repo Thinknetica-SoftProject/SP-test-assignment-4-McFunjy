@@ -10,4 +10,15 @@
 #
 ## Решение:
 
+code = 0
+matr = []
+File.readlines("data/3.txt").each {|el| matr << el.split(" ")}
+for mass in (0..matr.size-1)
+    size = mass.size
+    for el in (0..matr[mass].size-1)
+        matr[mass][el] = matr[mass][el].to_i
+    end
+    code += matr[mass].max - matr[mass].min
+end
+puts code
 
