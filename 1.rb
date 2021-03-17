@@ -16,7 +16,7 @@
 #
 ## Решение:
 
-str = File.read("data/1.txt")
+str = File.read("data/1.txt").chomp
 floor = 0
 for simbol in (0..str.length-1)
     if str[simbol] == "("
